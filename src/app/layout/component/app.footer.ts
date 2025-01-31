@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   selector: 'app-footer',
   template: `<div class="layout-footer">
     by
-    <span>M.T</span>
+    <span>Matias</span>
   </div>`,
 })
 export class AppFooter {}
