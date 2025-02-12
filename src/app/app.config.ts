@@ -25,6 +25,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     providePrimeNG({
       theme: { preset: Aura, options: { darkModeSelector: '.app-dark' } },
+      ripple: true,
     }),
   ],
 };

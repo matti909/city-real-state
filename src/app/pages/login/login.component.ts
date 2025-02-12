@@ -87,7 +87,7 @@ import { AppFloatingConfigurator } from '../../layout/component/app.floatingconf
                 id="email1"
                 type="text"
                 placeholder="Email address"
-                class="w-full md:w-[30rem] mb-8"
+                class="w-full md:w-[30rem] mb-5"
                 [(ngModel)]="email"
               />
 

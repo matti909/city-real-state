@@ -9,16 +9,18 @@ import { AppMenuitem } from './app.menuitem';
   standalone: true,
   imports: [CommonModule, AppMenuitem, RouterModule],
   template: `<ul class="layout-menu">
-    <ng-container *ngFor="let item of model; let i = index">
-      <li
-        app-menuitem
-        *ngIf="!item.separator"
-        [item]="item"
-        [index]="i"
-        [root]="true"
-      ></li>
-      <li *ngIf="item.separator" class="menu-separator"></li>
-    </ng-container>
+    @for (item of model; track item.id; let i = $index) {
+      <ng-container>
+        <li
+          app-menuitem
+          *ngIf="!item.separator"
+          [item]="item"
+          [index]="$index"
+          [root]="true"
+        ></li>
+        <li *ngIf="item.separator" class="menu-separator"></li>
+      </ng-container>
+    }
   </ul> `,
 })
 export class AppMenu {
@@ -27,10 +29,38 @@ export class AppMenu {
   ngOnInit() {
     this.model = [
       {
-        label: 'Home',
+        label: 'Administracion',
         items: [
-          { label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] },
+          {
+            label: 'Panel',
+            icon: 'pi pi-fw pi-home',
+            routerLink: ['/dashboard/main'],
+          },
+          {
+            label: 'Propiedades',
+            icon: 'pi pi-building',
+            routerLink: ['/dashboard/Propiedades'],
+          },
+          {
+            label: 'Inquilinos',
+            icon: 'pi pi-user',
+            routerLink: ['/dashboard/Inquilinos'],
+          },
+          {
+            label: 'Documentos',
+            icon: 'pi pi-folder',
+            routerLink: ['/dashboard/Documentos'],
+          },
+          {
+            label: 'Metricas',
+            icon: 'pi pi-chart-line',
+            routerLink: ['/dashboard/Metricas'],
+          },
         ],
+      },
+      {
+        label: 'Configuracion',
+        items: [{ label: 'Usuarios del sistema', icon: 'pi pi-cog' }],
       },
     ];
   }
