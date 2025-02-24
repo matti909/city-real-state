@@ -6,6 +6,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DialogModule } from 'primeng/dialog';
 import { SelectModule } from 'primeng/select';
 import generatePDF from '../../../lib/pdf';
+import { TDocumentDefinitions } from 'pdfmake/interfaces';
 
 @Component({
   selector: 'app-stat-card',
@@ -39,7 +40,11 @@ export class StatCardComponent {
     this.reciboDialog = true;
   }
 
-  onGeneratePDF() {
+  async onGeneratePDF() {
+    const pdfMake = (await import('pdfmake/build/pdfmake')).default;
+    const pdfFonts = (await import('pdfmake/build/vfs_fonts')).default;
+    pdfMake.vfs = pdfFonts.vfs;
+
     const product = {
       nombre: 'Servicio Básico',
       cantidad: 1,
@@ -49,6 +54,26 @@ export class StatCardComponent {
     const reciboNo = '123456789';
     const fecha = '14 de Febrero de 2025';
 
-    generatePDF(product, reciboNo, fecha);
+    // ✅ Especificar el tipo TDocumentDefinitions
+    const docDefinition: TDocumentDefinitions = {
+      content: [
+        { text: 'Recibo de Pago', style: 'header' },
+        { text: `Fecha: ${fecha}`, margin: [0, 10, 0, 10] },
+        { text: `Número de Recibo: ${reciboNo}` },
+        { text: '------------------------------', margin: [0, 10, 0, 10] },
+        { text: `Producto: ${product.nombre}` },
+        { text: `Cantidad: ${product.cantidad}` },
+        { text: `Total: $${product.total}`, bold: true },
+      ],
+      styles: {
+        header: {
+          fontSize: 18,
+          bold: true,
+          alignment: 'center',
+        },
+      },
+    };
+
+    pdfMake.createPdf(docDefinition).download(`recibo_${reciboNo}.pdf`);
   }
 }
