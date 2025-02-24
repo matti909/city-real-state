@@ -5,104 +5,108 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   selector: 'app-stats-widget',
   imports: [CommonModule],
-  template: `<div class="grid grid-cols-12 gap-6">
+  template: ` <div class="grid grid-cols-12 gap-6">
     <!-- Card 1: Orders -->
-    <div class="col-span-12 lg:col-span-6 xl:col-span-3">
-      <div class="card mb-0">
+    <div class="col-span-10 lg:col-span-6 xl:col-span-3">
+      <div class="mb-0 card">
         <div class="flex justify-between mb-4">
           <div>
-            <span class="block text-muted-color font-medium mb-4">Orders</span>
-            <div
-              class="text-surface-900 dark:text-surface-0 font-medium text-xl"
+            <span class="block mb-4 font-medium text-muted-color"
+              >Propiedades totales</span
             >
-              152
+            <div
+              class="text-xl font-medium text-surface-900 dark:text-surface-0"
+            >
+              94
             </div>
           </div>
           <div
-            class="flex items-center justify-center bg-blue-100 dark:bg-blue-400/10 rounded-border"
+            class="flex justify-center items-center bg-blue-100 dark:bg-blue-400/10 rounded-border"
             style="width: 2.5rem; height: 2.5rem"
           >
             <i class="pi pi-shopping-cart text-blue-500 !text-xl"></i>
           </div>
         </div>
-        <span class="text-primary font-medium">24 new </span>
-        <span class="text-muted-color">since last visit</span>
+        <span class="font-medium text-primary">12 </span>
+        <span class="text-muted-color">nuevas este mes</span>
       </div>
     </div>
 
     <!-- Card 2: Revenue -->
-    <div class="col-span-12 lg:col-span-6 xl:col-span-3">
-      <div class="card mb-0">
+    <div class="col-span-10 lg:col-span-6 xl:col-span-3">
+      <div class="mb-0 card">
         <div class="flex justify-between mb-4">
           <div>
-            <span class="block text-muted-color font-medium mb-4">Revenue</span>
-            <div
-              class="text-surface-900 dark:text-surface-0 font-medium text-xl"
+            <span class="block mb-4 font-medium text-muted-color"
+              >Ventas del mes</span
             >
-              $2.100
+            <div
+              class="text-xl font-medium text-surface-900 dark:text-surface-0"
+            >
+              96
             </div>
           </div>
           <div
-            class="flex items-center justify-center bg-orange-100 dark:bg-orange-400/10 rounded-border"
+            class="flex justify-center items-center bg-orange-100 dark:bg-orange-400/10 rounded-border"
             style="width: 2.5rem; height: 2.5rem"
           >
             <i class="pi pi-dollar text-orange-500 !text-xl"></i>
           </div>
         </div>
-        <span class="text-primary font-medium">%52+ </span>
-        <span class="text-muted-color">since last week</span>
+        <span class="font-medium text-primary">%12+ </span>
+        <span class="text-muted-color">mes pasado</span>
       </div>
     </div>
 
     <!-- Card 3: Customers -->
-    <div class="col-span-12 lg:col-span-6 xl:col-span-3">
-      <div class="card mb-0">
+    <div class="col-span-10 lg:col-span-6 xl:col-span-3">
+      <div class="mb-0 card">
         <div class="flex justify-between mb-4">
           <div>
-            <span class="block text-muted-color font-medium mb-4"
-              >Customers</span
+            <span class="block mb-4 font-medium text-muted-color"
+              >Clientes activos</span
             >
             <div
-              class="text-surface-900 dark:text-surface-0 font-medium text-xl"
+              class="text-xl font-medium text-surface-900 dark:text-surface-0"
             >
-              28441
+              207
             </div>
           </div>
           <div
-            class="flex items-center justify-center bg-cyan-100 dark:bg-cyan-400/10 rounded-border"
+            class="flex justify-center items-center bg-cyan-100 dark:bg-cyan-400/10 rounded-border"
             style="width: 2.5rem; height: 2.5rem"
           >
             <i class="pi pi-users text-cyan-500 !text-xl"></i>
           </div>
         </div>
-        <span class="text-primary font-medium">520 </span>
-        <span class="text-muted-color">newly registered</span>
+        <span class="font-medium text-primary">25 </span>
+        <span class="text-muted-color">nuevos registros</span>
       </div>
     </div>
 
     <!-- Card 4: Comments -->
-    <div class="col-span-12 lg:col-span-6 xl:col-span-3">
-      <div class="card mb-0">
+    <div class="col-span-10 lg:col-span-6 xl:col-span-3">
+      <div class="mb-0 card">
         <div class="flex justify-between mb-4">
           <div>
-            <span class="block text-muted-color font-medium mb-4"
-              >Comments</span
+            <span class="block mb-4 font-medium text-muted-color"
+              >Citas Programadas</span
             >
             <div
-              class="text-surface-900 dark:text-surface-0 font-medium text-xl"
+              class="text-xl font-medium text-surface-900 dark:text-surface-0"
             >
-              152 Unread
+              15
             </div>
           </div>
           <div
-            class="flex items-center justify-center bg-purple-100 dark:bg-purple-400/10 rounded-border"
+            class="flex justify-center items-center bg-purple-100 dark:bg-purple-400/10 rounded-border"
             style="width: 2.5rem; height: 2.5rem"
           >
             <i class="pi pi-comment text-purple-500 !text-xl"></i>
           </div>
         </div>
-        <span class="text-primary font-medium">85 </span>
-        <span class="text-muted-color">responded</span>
+        <span class="font-medium text-primary">8 </span>
+        <span class="text-muted-color">para hoy</span>
       </div>
     </div>
   </div>`,

@@ -1,4 +1,4 @@
-<div class="grid grid-cols-12 gap-6">
+<div class="grid grid-cols-4 gap-6 xl:grid-cols-12">
   <!-- Botón 1: Nueva Propiedad -->
   <button
     class="col-span-2 p-4 shadow-md transition-all card hover:shadow-lg hover:scale-105"
@@ -65,7 +65,8 @@
   </button>
 
   <!-- Botón 4: Registrar Pago -->
-  <button
+  <p-button
+    (onClick)="openNew()"
     class="col-span-2 p-4 shadow-md transition-all card hover:shadow-lg hover:scale-105"
   >
     <div class="flex flex-col-reverse justify-between items-center mb-4">
@@ -84,7 +85,7 @@
         ></i>
       </div>
     </div>
-  </button>
+  </p-button>
 
   <!-- Botón 5: Reportes -->
   <button
@@ -125,4 +126,75 @@
       </div>
     </div>
   </button>
+
+  <p-dialog
+    [(visible)]="reciboDialog"
+    [style]="{ width: '450px' }"
+    header="Propiedades"
+    [modal]="true"
+  >
+    <ng-template #content>
+      <div class="flex flex-col gap-6">
+        <div>
+          <label for="clienteNumero" class="block mb-3 font-bold"
+            >Nº Cliente:</label
+          >
+          <input
+            type="text"
+            pInputText
+            id="clienteNumero"
+            [(ngModel)]="clienteNumero"
+            required
+            autofocus
+            fluid
+          />
+        </div>
+
+        <div>
+          <label for="mes" class="block mb-3 font-bold">Mes:</label>
+          <input
+            type="text"
+            pInputText
+            id="mes"
+            [(ngModel)]="mes"
+            required
+            fluid
+          />
+        </div>
+        <div>
+          <label for="adicionales" class="block mb-3 font-bold"
+            >Adicionales:</label
+          >
+          <p-select
+            id="adicionales"
+            [options]="adicionalesOptions"
+            [(ngModel)]="adicionalesSeleccionados"
+            placeholder="Seleccione adicionales"
+            fluid
+          ></p-select>
+        </div>
+
+        <div>
+          <label for="monto" class="block mb-3 font-bold">Monto:</label>
+          <input
+            type="number"
+            pInputText
+            id="monto"
+            [(ngModel)]="monto"
+            required
+            fluid
+          />
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template #footer>
+      <p-button label="Cancelar" icon="pi pi-times" text />
+      <p-button
+        label="Generar PDF"
+        icon="pi pi-check"
+        (click)="onGeneratePDF()"
+      />
+    </ng-template>
+  </p-dialog>
 </div>

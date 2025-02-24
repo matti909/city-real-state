@@ -48,7 +48,7 @@
   [rowsPerPageOptions]="[10, 20, 30]"
 >
   <ng-template #caption>
-    <div class="flex items-center justify-between">
+    <div class="flex justify-between items-center">
       <h5 class="m-0">Manage Products</h5>
       <p-iconfield>
         <p-inputicon styleClass="pi pi-search" />
@@ -154,11 +154,11 @@
           product.image
         "
         [alt]="product.image"
-        class="block m-auto pb-4"
+        class="block pb-4 m-auto"
         *ngIf="product.image"
       />
       <div>
-        <label for="name" class="block font-bold mb-3">Name</label>
+        <label for="name" class="block mb-3 font-bold">Name</label>
         <input
           type="text"
           pInputText
@@ -173,7 +173,7 @@
         >
       </div>
       <div>
-        <label for="description" class="block font-bold mb-3"
+        <label for="description" class="block mb-3 font-bold"
           >Description</label
         >
         <textarea
@@ -188,7 +188,7 @@
       </div>
 
       <div>
-        <label for="inventoryStatus" class="block font-bold mb-3"
+        <label for="inventoryStatus" class="block mb-3 font-bold"
           >Inventory Status</label
         >
         <p-select
@@ -203,9 +203,9 @@
       </div>
 
       <div>
-        <span class="block font-bold mb-4">Category</span>
+        <span class="block mb-4 font-bold">Category</span>
         <div class="grid grid-cols-12 gap-4">
-          <div class="flex items-center gap-2 col-span-6">
+          <div class="flex col-span-6 gap-2 items-center">
             <p-radiobutton
               id="category1"
               name="departamento"
@@ -215,7 +215,7 @@
             <label for="category1">Departamento</label>
           </div>
 
-          <div class="flex items-center gap-2 col-span-6">
+          <div class="flex col-span-6 gap-2 items-center">
             <p-radiobutton
               id="category3"
               name="vivienda"
@@ -224,7 +224,7 @@
             />
             <label for="category3">Vivienda</label>
           </div>
-          <div class="flex items-center gap-2 col-span-6">
+          <div class="flex col-span-6 gap-2 items-center">
             <p-radiobutton
               id="category4"
               name="comercial"
@@ -238,7 +238,7 @@
 
       <div class="grid grid-cols-12 gap-4">
         <div class="col-span-6">
-          <label for="price" class="block font-bold mb-3">Price</label>
+          <label for="price" class="block mb-3 font-bold">Price</label>
           <p-inputnumber
             id="price"
             [(ngModel)]="product.price"
@@ -249,7 +249,7 @@
           />
         </div>
         <div class="col-span-6">
-          <label for="quantity" class="block font-bold mb-3">Quantity</label>
+          <label for="quantity" class="block mb-3 font-bold">Quantity</label>
           <p-inputnumber id="quantity" [(ngModel)]="product.quantity" fluid />
         </div>
       </div>

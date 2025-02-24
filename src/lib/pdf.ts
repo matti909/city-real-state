@@ -10,30 +10,20 @@ type Product = {
   total: number;
 };
 
-const generatePDF = (products: Product[], reciboNo: string, fecha: string) => {
+const generatePDF = (product: Product, reciboNo: string, fecha: string) => {
   const tableBody = [
     [
       { text: 'Nombre producto', style: 'tableHeader' },
       { text: 'Cantidad', style: 'tableHeader' },
       { text: 'Total', style: 'tableHeader' },
     ],
-    ...products.map((product) => [
-      product.nombre,
-      product.cantidad.toString(),
-      `$ ${product.total}`,
-    ]),
+    [product.nombre, product.cantidad.toString(), `$ ${product.total}`],
   ];
-
-  const totalGeneral = products.reduce(
-    (sum, product) => sum + product.total,
-    0,
-  );
 
   const content: any[] = [];
 
   content.push({
     columns: [
-      { image: variable64.miVar, width: 50 },
       {
         stack: [
           { text: `Recibo No. ${reciboNo}`, style: 'header' },
@@ -67,7 +57,7 @@ const generatePDF = (products: Product[], reciboNo: string, fecha: string) => {
     columns: [
       { text: '', width: '*' },
       {
-        text: `Total: $ ${totalGeneral}`,
+        text: `Total: $ ${product.total}`,
         style: 'total',
         alignment: 'right',
         margin: [0, 10, 0, 10],
